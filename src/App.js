@@ -1,7 +1,8 @@
 import './App.css';
 import { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import SignIn from './Views/SignIn';
+// import SignIn from './Views/SignIn';
+import Auth from './Views/Auth';
 import { getUser, logout } from './services/users';
 
 function App() {
@@ -14,15 +15,15 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             {currentUser && (
               <>
                 <h1>Signed In</h1>
                 <button onClick={logoutUser}>Log Out</button>
               </>
             )}
-            {!currentUser && <h1>Not Signed In</h1>}
-            <SignIn />
+            {!currentUser && <Auth setCurrentUser={setCurrentUser} /> /*<h1>Not Signed In</h1>*/}
+            {/* <SignIn /> */}
           </Route>
         </Switch>
       </BrowserRouter>
