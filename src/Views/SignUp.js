@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import AuthForm from '../Components/AuthForm';
-import { signInUser, signupUser } from '../services/users';
+import { signupUser } from '../services/users';
 
-export default function SignIn() {
+export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const handleSubmit = async (e) => {

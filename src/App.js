@@ -18,7 +18,7 @@ function App() {
             {currentUser && (
               <>
                 <h1>Signed In</h1>
-                {/* <button onClick={logoutUser}>Log Out</button> */}
+                <button onClick={logoutUser}>Log Out</button>
               </>
             )}
             {!currentUser && <h1>Not Signed In</h1>}
