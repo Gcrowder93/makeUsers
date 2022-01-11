@@ -13,11 +13,21 @@ export default function AuthForm({
       <h3>{errorMessage}</h3>
       <div className="form-controls">
         <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input
+          placeholder="Enter Valid Email Address"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </div>
       <div className="form-controls">
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input
+          placeholder="Minimum 6 digits req."
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </div>
       <input type="submit" />
     </form>

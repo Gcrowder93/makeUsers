@@ -1,10 +1,11 @@
+import './Auth.css';
 import React, { useState } from 'react';
 import classnames from 'classnames';
 import AuthForm from '../Components/AuthForm';
 import { signInUser, signupUser } from '../services/users';
 
 export default function Auth({ setCurrentUser }) {
-  const [type, setType] = useState('signin');
+  const [type, setType] = useState('Sign In');
   const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +13,7 @@ export default function Auth({ setCurrentUser }) {
     e.preventDefault();
     try {
       let resp;
-      if (type === 'signin') {
+      if (type === 'Sign In') {
         resp = await signInUser(email, password);
       } else {
         resp = await signupUser(email, password);
@@ -27,17 +28,17 @@ export default function Auth({ setCurrentUser }) {
       <div classnames="section">
         <h1
           onClick={() => {
-            setType('signin');
+            setType('Sign In');
           }}
-          className={classnames({ active: type === 'signin' })}
+          className={classnames({ active: type === 'Sign In' })}
         >
           Sign In
         </h1>
         <h1
           onClick={() => {
-            setType('signup');
+            setType('Sign Up');
           }}
-          className={classnames({ active: type === 'signup' })}
+          className={classnames({ active: type === 'Sign Up' })}
         >
           Sign Up
         </h1>
