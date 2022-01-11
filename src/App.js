@@ -22,8 +22,7 @@ function App() {
                 <button onClick={logoutUser}>Log Out</button>
               </>
             )}
-            {!currentUser && <Auth setCurrentUser={setCurrentUser} /> /*<h1>Not Signed In</h1>*/}
-            {/* <SignIn /> */}
+            {!currentUser && <Auth setCurrentUser={setCurrentUser} />}
           </Route>
         </Switch>
       </BrowserRouter>

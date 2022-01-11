@@ -4,7 +4,7 @@ import AuthForm from '../Components/AuthForm';
 import { signInUser, signupUser } from '../services/users';
 
 export default function Auth({ setCurrentUser }) {
-  const [type, setType] = useState('Click Sign Up or Sign In');
+  const [type, setType] = useState('signin');
   const [errorMessage, setErrorMessage] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +19,7 @@ export default function Auth({ setCurrentUser }) {
       }
       setCurrentUser(resp);
     } catch {
-      setErrorMessage('you done fucked up');
+      setErrorMessage('There was an error, please try again.');
     }
   };
   return (
@@ -27,7 +27,7 @@ export default function Auth({ setCurrentUser }) {
       <div classnames="section">
         <h1
           onClick={() => {
-            setType('Sign In');
+            setType('signin');
           }}
           className={classnames({ active: type === 'signin' })}
         >
@@ -35,7 +35,7 @@ export default function Auth({ setCurrentUser }) {
         </h1>
         <h1
           onClick={() => {
-            setType('Sign Up');
+            setType('signup');
           }}
           className={classnames({ active: type === 'signup' })}
         >
@@ -44,12 +44,12 @@ export default function Auth({ setCurrentUser }) {
       </div>
       <p> {type} </p>
       <AuthForm
-        errorMessage={errorMessage}
         email={email}
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
         handleSubmit={handleSubmit}
+        errorMessage={errorMessage}
       />
     </div>
   );
